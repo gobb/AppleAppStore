@@ -1,0 +1,22 @@
+{
+  "name": "apple/app-store",
+  "description": "Control Apple AppStores and price transformers in apple system",
+  "keywords": ["apple", "appstore", "price transformer"],
+  "homepage": "https://github.com/ZhukV/AppleAppStore",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vitaliy Zhuk",
+      "email": "zhuk2205@gmail.com"
+    }
+  ],
+
+  "require": {
+    "php": ">=5.3.3",
+  },
+
+  "autoload": {
+    "psr-0": { "Apple\\AppStore": "src/" }
+  }
+}
