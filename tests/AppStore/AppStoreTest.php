@@ -29,25 +29,26 @@ class AppStoreTest extends \PHPUnit_Framework_TestCase
             ->setPrices(array(
                 1 => 11,
                 2 => 22,
-                3 => 33
+                // Float variable
+                '0.44' => 44
             ));
 
         $this->assertEquals($priceTransformer->transform(1), 11);
         $this->assertEquals($priceTransformer->transform(2), 22);
-        $this->assertEquals($priceTransformer->transform(3), 33);
+        $this->assertEquals($priceTransformer->transform(0.44), 44);
 
-        $this->assertEquals($priceTransformer->reverse(33), 3);
+        $this->assertEquals($priceTransformer->reverse(44), 0.44);
         $this->assertEquals($priceTransformer->reverse(22), 2);
         $this->assertEquals($priceTransformer->reverse(11), 1);
 
         $this->assertEquals($priceTransformer->reverseTransform(11), 1);
         $this->assertEquals($priceTransformer->reverseTransform(22), 2);
-        $this->assertEquals($priceTransformer->reverseTransform(33), 3);
+        $this->assertEquals($priceTransformer->reverseTransform(44), 0.44);
 
         $this->assertEquals($priceTransformer->getPrices(), array(
            1 => 11,
            2 => 22,
-           3 => 33
+           '0.44' => 44
         ));
 
         // Validate control error

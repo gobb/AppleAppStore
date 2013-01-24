@@ -15,6 +15,9 @@ use Apple\AppStore\PriceTransformerInterface;
 
 /**
  * Abstract core for price transformer
+ *
+ * In price map use string type, because not correct float
+ * variable as array key
  */
 abstract class AbstractPriceTransformer implements PriceTransformerInterface
 {
@@ -42,7 +45,12 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
      */
     public function setPrices(array $prices)
     {
-        $this->prices = $prices;
+        // Reset prices map
+        $this->prices = array();
+
+        foreach ($prices as $priceKey => $price) {
+            $this->prices[(string) $priceKey] = (string) $price;
+        }
 
         return $this;
     }
@@ -72,13 +80,13 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
             throw new \LogicException('Can\'t transform price. Undefined prices map.');
         }
 
-        $basePrice = (float) $basePrice;
+        $basePrice = (string) $basePrice;
 
         if (!isset($this->prices[$basePrice])) {
             throw new \InvalidArgumentException(sprintf('Can\'t transform price "%s". Not found price in prices map.', $basePrice));
         }
 
-        return $this->prices[$basePrice];
+        return (float) $this->prices[$basePrice];
     }
 
     /**
@@ -90,7 +98,7 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
             throw new \LogicException('Can\'t transform price. Undefined prices map.');
         }
 
-        $price = (float) $price;
+        $price = (string) $price;
 
         if(!$key = array_keys($this->prices, $price)) {
             throw new \InvalidArgumentException(sprintf('Can\'t reverse transform price "%s". Not found price in prices map.', $price));
@@ -102,7 +110,7 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
 
         list (, $key) = each($key);
 
-        return $key;
+        return (float) $key;
     }
 
     /**
