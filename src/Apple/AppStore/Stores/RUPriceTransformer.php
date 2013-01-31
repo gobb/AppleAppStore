@@ -12,7 +12,7 @@
 namespace Apple\AppStore\Stores;
 
 /**
- * RUB price transformer
+ * RUB price transformer (Russia)
  */
 class RUPriceTransformer extends AbstractPriceTransformer
 {

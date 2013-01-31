@@ -17,7 +17,7 @@ namespace Apple\AppStore\Stores;
 class RUStore extends AbstractStore
 {
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     final public function getCountryISO()
     {
@@ -25,7 +25,7 @@ class RUStore extends AbstractStore
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     final public function getUriPrefix()
     {
@@ -33,7 +33,7 @@ class RUStore extends AbstractStore
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function getDefaultPriceTransformer()
     {

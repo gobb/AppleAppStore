@@ -9,9 +9,9 @@
  * file that was distributed with this source code
  */
 
-use Apple\AppStore\Stores,
-    Apple\AppStore\AppStoreInterface,
-    Apple\AppStore\PriceTransformerInterface;
+use Apple\AppStore\Stores;
+use Apple\AppStore\AppStoreInterface;
+use Apple\AppStore\PriceTransformerInterface;
 
 /**
  * Store tests

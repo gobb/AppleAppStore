@@ -17,7 +17,7 @@ namespace Apple\AppStore\Stores;
 class DefaultPriceTransformer extends AbstractPriceTransformer
 {
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function transform($basePrice)
     {
@@ -25,7 +25,7 @@ class DefaultPriceTransformer extends AbstractPriceTransformer
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function reverseTransform($price)
     {
@@ -33,7 +33,7 @@ class DefaultPriceTransformer extends AbstractPriceTransformer
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function setPrices(array $prices)
     {
@@ -41,7 +41,7 @@ class DefaultPriceTransformer extends AbstractPriceTransformer
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function getDefaultPrices()
     {

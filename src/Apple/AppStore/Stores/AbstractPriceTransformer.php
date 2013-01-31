@@ -41,7 +41,7 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function setPrices(array $prices)
     {
@@ -56,7 +56,7 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function getPrices()
     {
@@ -64,7 +64,7 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function getDefaultPrices()
     {
@@ -72,7 +72,7 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function transform($basePrice)
     {
@@ -90,7 +90,7 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function reverseTransform($price)
     {
@@ -114,7 +114,7 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function reverse($price)
     {

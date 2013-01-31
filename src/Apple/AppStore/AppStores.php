@@ -21,6 +21,8 @@ class AppStores
      *
      * @param string $countryISO
      * @param boolean $initialize
+     *
+     * @return \Apple\AppStore\AppStoreInterface
      */
     static public function getAppStoreByCountry($countryISO, $initialize = TRUE)
     {

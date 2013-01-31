@@ -11,8 +11,8 @@
 
 namespace Apple\AppStore\Stores;
 
-use Apple\AppStore\AppStoreInterface,
-    Apple\AppStore\PriceTransformerInterface;
+use Apple\AppStore\AppStoreInterface;
+use Apple\AppStore\PriceTransformerInterface;
 
 /**
  * Abstract AppStore core
@@ -39,7 +39,7 @@ abstract class AbstractStore implements AppStoreInterface
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function getPriceTransformer()
     {
@@ -51,7 +51,7 @@ abstract class AbstractStore implements AppStoreInterface
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function setPriceTransformer(PriceTransformerInterface $priceTransformer)
     {
@@ -61,7 +61,7 @@ abstract class AbstractStore implements AppStoreInterface
     }
 
     /**
-     * @{inerhitDoc}
+     * {@inheritDoc}
      */
     public function getUriPrefix()
     {
