@@ -45,6 +45,6 @@ class DefaultPriceTransformer extends AbstractPriceTransformer
      */
     public function getDefaultPrices()
     {
-        return NULL;
+        return null;
     }
 }

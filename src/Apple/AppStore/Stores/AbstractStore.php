@@ -22,7 +22,7 @@ abstract class AbstractStore implements AppStoreInterface
     /**
      * @var PriceTransformerInterface
      */
-    protected $priceTransformer = NULL;
+    protected $priceTransformer;
 
     /**
      * Construct

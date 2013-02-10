@@ -20,6 +20,8 @@ class AppStoreTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Prices tests
+     *
+     * @param PriceTransformerInterface $priceTransformer
      */
     protected function pricesTest(PriceTransformerInterface $priceTransformer)
     {
@@ -52,15 +54,12 @@ class AppStoreTest extends \PHPUnit_Framework_TestCase
         ));
 
         // Validate control error
-        $priceTransformer
-                ->setPrices(array());
+        $priceTransformer->setPrices(array());
 
         try {
             $priceTransformer->transform(1);
-            $this->fail(sprintf('Not control prices map in %s price transformer.', get_class($priceTransformer)));
-        }
-        catch (\LogicException $e) {
-            $this->assertTrue(TRUE);
+            $this->fail(sprintf('Not control prices map in "%s" price transformer.', get_class($priceTransformer)));
+        } catch (\LogicException $e) {
         }
 
         $priceTransformer
@@ -70,32 +69,35 @@ class AppStoreTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * USA store test
+     * @dataProvider providerStores
      */
-    public function testUSStore()
+    public function testStores(AppStoreInterface $store, $defaultPriceTransformer)
     {
-        $store = new Stores\USStore();
-        $this->assertTrue($store instanceof AppStoreInterface);
+        if ($defaultPriceTransformer) {
+            $this->assertInstanceOf('Apple\AppStore\Stores\DefaultPriceTransformer', $store->getDefaultPriceTransformer());
+
+            $this->assertEquals($store->getPriceTransformer()->transform(0.99), 0.99);
+            $this->assertEquals($store->getPriceTransformer()->reverse(1.99), 1.99);
+            $this->assertEquals($store->getPriceTransformer()->reverseTransform(0), 0);
+        } else {
+            $this->assertFalse(
+                $store->getDefaultPriceTransformer() instanceof \Apple\AppStore\DefaultPriceTransformer,
+                sprintf('Store "%s" can\'t have DefaultPriceTransformer', get_class($store))
+            );
+
+            $priceTransformer = $store->getDefaultPriceTransformer();
+            $this->pricesTest($priceTransformer);
+        }
     }
 
     /**
-     * US price transformer text
+     * Stores provider
      */
-    public function testUSStorePriceTransformer()
+    public function providerStores()
     {
-        $store = new Stores\USStore();
-        $this->assertEquals($store->getPriceTransformer()->transform(0.99), 0.99);
-        $this->assertEquals($store->getPriceTransformer()->reverse(1.99), 1.99);
-        $this->assertEquals($store->getPriceTransformer()->reverseTransform(0), 0);
-    }
-
-    /**
-     * RU store test
-     */
-    public function testRUStore()
-    {
-        $store = new Stores\RUStore();
-        $this->assertTrue($store instanceof AppStoreInterface);
-        $this->pricesTest($store->getPriceTransformer());
+        return array(
+            array(new Stores\USStore, true),
+            array(new Stores\RUStore, false)
+        );
     }
 }

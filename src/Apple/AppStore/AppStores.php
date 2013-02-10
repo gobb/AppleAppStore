@@ -24,7 +24,7 @@ class AppStores
      *
      * @return \Apple\AppStore\AppStoreInterface
      */
-    static public function getAppStoreByCountry($countryISO, $initialize = TRUE)
+    public static function getAppStoreByCountry($countryISO, $initialize = true)
     {
         $countryISO = strtoupper($countryISO);
 
