@@ -35,17 +35,17 @@ class AppStoreTest extends \PHPUnit_Framework_TestCase
                 '0.44' => 44
             ));
 
-        $this->assertEquals($priceTransformer->transform(1), 11);
-        $this->assertEquals($priceTransformer->transform(2), 22);
-        $this->assertEquals($priceTransformer->transform(0.44), 44);
+        $this->assertEquals(11, $priceTransformer->transform(1));
+        $this->assertEquals(22, $priceTransformer->transform(2));
+        $this->assertEquals(44, $priceTransformer->transform(0.44));
 
-        $this->assertEquals($priceTransformer->reverse(44), 0.44);
-        $this->assertEquals($priceTransformer->reverse(22), 2);
-        $this->assertEquals($priceTransformer->reverse(11), 1);
+        $this->assertEquals(0.44, $priceTransformer->reverse(44));
+        $this->assertEquals(2, $priceTransformer->reverse(22));
+        $this->assertEquals(1, $priceTransformer->reverse(11));
 
-        $this->assertEquals($priceTransformer->reverseTransform(11), 1);
-        $this->assertEquals($priceTransformer->reverseTransform(22), 2);
-        $this->assertEquals($priceTransformer->reverseTransform(44), 0.44);
+        $this->assertEquals(1, $priceTransformer->reverseTransform(11));
+        $this->assertEquals(2, $priceTransformer->reverseTransform(22));
+        $this->assertEquals(0.44, $priceTransformer->reverseTransform(44));
 
         $this->assertEquals($priceTransformer->getPrices(), array(
            1 => 11,
@@ -65,7 +65,7 @@ class AppStoreTest extends \PHPUnit_Framework_TestCase
         $priceTransformer
                 ->setPrices($oldPricesMap);
 
-        $this->assertEquals($priceTransformer->getPrices(), $oldPricesMap);
+        $this->assertEquals($oldPricesMap, $priceTransformer->getPrices());
     }
 
     /**
@@ -74,17 +74,10 @@ class AppStoreTest extends \PHPUnit_Framework_TestCase
     public function testStores(AppStoreInterface $store, $defaultPriceTransformer)
     {
         if ($defaultPriceTransformer) {
-            $this->assertInstanceOf('Apple\AppStore\Stores\DefaultPriceTransformer', $store->getDefaultPriceTransformer());
-
-            $this->assertEquals($store->getPriceTransformer()->transform(0.99), 0.99);
-            $this->assertEquals($store->getPriceTransformer()->reverse(1.99), 1.99);
-            $this->assertEquals($store->getPriceTransformer()->reverseTransform(0), 0);
+            $this->assertEquals(0.99, $store->getPriceTransformer()->transform(0.99));
+            $this->assertEquals(1.99, $store->getPriceTransformer()->reverse(1.99));
+            $this->assertEquals(0, $store->getPriceTransformer()->reverseTransform(0));
         } else {
-            $this->assertFalse(
-                $store->getDefaultPriceTransformer() instanceof \Apple\AppStore\DefaultPriceTransformer,
-                sprintf('Store "%s" can\'t have DefaultPriceTransformer', get_class($store))
-            );
-
             $priceTransformer = $store->getDefaultPriceTransformer();
             $this->pricesTest($priceTransformer);
         }

@@ -58,6 +58,18 @@ var_dump($ruPrice->transform(1.99));
 var_dump($ruPrice->reverse(66));
 ```
 
+Get stores and price transformer by keys
+----------------------------------------
+```php
+use Apple\AppStore\AppStores;
+
+// Get price transformer by currency
+$transformer = AppStores::getPriceTransformerByCurrency('USD');
+
+// Get app store by country ISO Code
+$appStore = AppStores::getAppStoreByCountry('US');
+```
+
 #### ATTENTION:
 
 Prices map usage string variables, because not correct work float variables as array key.

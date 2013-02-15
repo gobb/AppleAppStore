@@ -14,6 +14,13 @@ namespace Apple\AppStore\Stores;
 /**
  * RUB price transformer (Russia)
  */
-class RUPriceTransformer extends AbstractPriceTransformer
+class RUBPriceTransformer extends AbstractPriceTransformer
 {
+    /**
+     * {@inheritDoc}
+     */
+    public function getPriceCurrency()
+    {
+        return 'RUB';
+    }
 }

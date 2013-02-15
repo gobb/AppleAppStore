@@ -33,7 +33,10 @@ abstract class AbstractPriceTransformer implements PriceTransformerInterface
     {
         if ($prices = $this->getDefaultPrices()) {
             if (!is_array($prices)) {
-                throw new \InvalidArgumentException(sprintf('Method "getDefaultPrices" must be return integer, "%s" given.', gettype($prices)));
+                throw new \InvalidArgumentException(sprintf(
+                    'Method "getDefaultPrices" must be return integer, "%s" given.',
+                    gettype($prices)
+                ));
             }
 
             $this->setPrices($prices);

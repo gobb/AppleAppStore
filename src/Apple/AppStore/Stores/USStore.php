@@ -37,6 +37,6 @@ class USStore extends AbstractStore
      */
     public function getDefaultPriceTransformer()
     {
-        return new DefaultPriceTransformer();
+        return new USDPriceTransformer();
     }
 }

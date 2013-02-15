@@ -51,4 +51,11 @@ interface PriceTransformerInterface
      */
     public function reverseTransform($price);
     public function reverse($price);
+
+    /**
+     * Get price currency
+     *
+     * @return string
+     */
+    public function getPriceCurrency();
 }

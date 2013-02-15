@@ -12,31 +12,31 @@
 namespace Apple\AppStore\Stores;
 
 /**
- * Russian Store
+ * USD Price transformer
  */
-class RUStore extends AbstractStore
+class USDPriceTransformer extends AbstractPriceTransformer
 {
     /**
      * {@inheritDoc}
      */
-    final public function getCountryISO()
+    public function getPriceCurrency()
     {
-        return 'ru';
+        return 'USD';
     }
 
     /**
      * {@inheritDoc}
      */
-    final public function getUriPrefix()
+    public function transform($basePrice)
     {
-        return 'ru';
+        return $basePrice;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getDefaultPriceTransformer()
+    public function reverseTransform($price)
     {
-        return new RUBPriceTransformer();
+        return $price;
     }
 }
