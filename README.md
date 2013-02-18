@@ -36,9 +36,9 @@ Default price transformer can't trasnforms.
 Example usage Russian price transformer:
 
 ```php
-use Apple\AppStore\Stores\RUPriceTransformer;
+use Apple\AppStore\RUBPriceTransformer;
 
-$ruPrice = new RUPriceTransformer;
+$ruPrice = new RUBPriceTransformer;
 
 $ruPrice
     ->setPrices(array(
@@ -83,8 +83,8 @@ AppStore must be implements AppStore interface
 Example:
 
 ```php
-use Apple\AppStore\Stores\AbstractStore;
-use Apple\AppStore\Stores\DefaultPriceTransformer;
+use Apple\AppStore\AbstractStore;
+use Apple\AppStore\USDPriceTransformer;
 
 
 class MyAppStore extends AbstractStore
@@ -119,7 +119,8 @@ class MyAppStore extends AbstractStore
      */
     public function getDefaultPriceTransformer()
     {
-        return new DefaultPriceTransformer();
+        // Example as USD
+        return new USDPriceTransformer();
     }
 }
 
@@ -143,7 +144,7 @@ Prices map usage string variables, because not correct work float variables as a
 
 $loader = include __DIR__ . '/vendor/autoload.php';
 
-use Apple\AppStore\Stores\AbstractPriceTransformer;
+use Apple\AppStore\AbstractPriceTransformer;
 
 
 class MyPriceTransformer extends AbstractPriceTransformer

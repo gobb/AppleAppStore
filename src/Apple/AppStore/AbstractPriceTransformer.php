@@ -9,7 +9,7 @@
  * file that was distributed with this source code
  */
 
-namespace Apple\AppStore\Stores;
+namespace Apple\AppStore;
 
 use Apple\AppStore\PriceTransformerInterface;
 

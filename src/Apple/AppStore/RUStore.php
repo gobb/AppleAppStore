@@ -9,19 +9,19 @@
  * file that was distributed with this source code
  */
 
-namespace Apple\AppStore\Stores;
+namespace Apple\AppStore;
 
 /**
- * USA Store
+ * Russian Store
  */
-class USStore extends AbstractStore
+class RUStore extends AbstractStore
 {
     /**
      * {@inheritDoc}
      */
     final public function getCountryISO()
     {
-        return 'us';
+        return 'ru';
     }
 
     /**
@@ -29,7 +29,7 @@ class USStore extends AbstractStore
      */
     final public function getUriPrefix()
     {
-        return 'us';
+        return 'ru';
     }
 
     /**
@@ -37,6 +37,6 @@ class USStore extends AbstractStore
      */
     public function getDefaultPriceTransformer()
     {
-        return new USDPriceTransformer();
+        return new RUBPriceTransformer();
     }
 }

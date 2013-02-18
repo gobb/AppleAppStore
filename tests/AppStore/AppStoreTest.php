@@ -9,7 +9,7 @@
  * file that was distributed with this source code
  */
 
-use Apple\AppStore\Stores;
+use Apple\AppStore as Stores;
 use Apple\AppStore\AppStoreInterface;
 use Apple\AppStore\PriceTransformerInterface;
 

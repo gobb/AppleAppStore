@@ -28,7 +28,7 @@ class AppStores
     {
         $currency = strtoupper($currency);
 
-        $classPriceTransformer = 'Apple\AppStore\Stores\\' . $currency . 'PriceTransformer';
+        $classPriceTransformer = 'Apple\AppStore\\' . $currency . 'PriceTransformer';
 
         if (!class_exists($classPriceTransformer)) {
             throw new \InvalidArgumentException(sprintf(
@@ -52,7 +52,7 @@ class AppStores
     {
         $countryISO = strtoupper($countryISO);
 
-        $classAppStore = 'Apple\AppStore\Stores\\' . $countryISO . 'Store';
+        $classAppStore = 'Apple\AppStore\\' . $countryISO . 'Store';
 
         if (!class_exists($classAppStore)) {
             throw new \InvalidArgumentException(sprintf(
