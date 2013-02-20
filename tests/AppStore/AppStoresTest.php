@@ -21,7 +21,7 @@ class AppStoresTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider providerCurrency
      */
-    public function testCurrency($currency, $exists)
+    public function testCurrency($currency, $exists = true)
     {
         if (false === $exists) {
             $this->setExpectedException('InvalidArgumentException');
@@ -38,15 +38,17 @@ class AppStoresTest extends \PHPUnit_Framework_TestCase
         return array(
             array('foo', false),
             array('bar', false),
-            array('RUB', true),
-            array('usd', true)
+            array('RUB'),
+            array('usd'),
+            array('uah'),
+            array('cad')
         );
     }
 
     /**
      * @dataProvider providerStores
      */
-    public function testStores($country, $exists)
+    public function testStores($country, $exists = true)
     {
         if (false === $exists) {
             $this->setExpectedException('InvalidArgumentException');
@@ -63,8 +65,10 @@ class AppStoresTest extends \PHPUnit_Framework_TestCase
         return array(
             array('foo', false),
             array('bar', false),
-            array('RU', true),
-            array('us', true)
+            array('RU'),
+            array('us'),
+            array('ua'),
+            array('ca')
         );
     }
 }
