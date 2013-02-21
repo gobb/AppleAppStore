@@ -57,5 +57,5 @@ interface PriceTransformerInterface
      *
      * @return string
      */
-    public function getPriceCurrency();
+    public function getCurrency();
 }

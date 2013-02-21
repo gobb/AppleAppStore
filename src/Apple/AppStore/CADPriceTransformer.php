@@ -19,7 +19,7 @@ class CADPriceTransformer extends AbstractPriceTransformer
     /**
      * {@inheritDoc}
      */
-    public function getPriceCurrency()
+    public function getCurrency()
     {
         return 'CAD';
     }

@@ -21,7 +21,7 @@ class UAHPriceTransformer extends AbstractPriceTransformer
     /**
      * {@inheritDoc}
      */
-    public function getPriceCurrency()
+    public function getCurrency()
     {
         return 'UAH';
     }
