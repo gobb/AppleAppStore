@@ -31,7 +31,11 @@ PriceTransformer component
 --------------------------
 
 Each price transformer can transform and reverse transform price.
-Default price transformer can't trasnforms.
+
+Methods:
+
+* transform (Transformation price from USD to currency)
+* reverse (Transformation price from currency to USD)
 
 Example usage Russian price transformer:
 
@@ -50,11 +54,11 @@ $ruPrice
 var_dump($ruPrice);
 
 // Transform price
-// RUB -> USD
+// USD -> RUB
 var_dump($ruPrice->transform(1.99));
 
 // Reverse transform
-// USD -> RUB
+// RUB -> USD
 var_dump($ruPrice->reverse(66));
 ```
 
@@ -135,9 +139,9 @@ Create new PriceTransformer
 
 Example:
 
-#### ATTENTION:
+**ATTENTION:**
 
-Prices map usage string variables, because not correct work float variables as array key.
+> Prices map usage string variables, because not correct work float variables as array key.
 
 ```php
 <?php
@@ -145,7 +149,6 @@ Prices map usage string variables, because not correct work float variables as a
 $loader = include __DIR__ . '/vendor/autoload.php';
 
 use Apple\AppStore\AbstractPriceTransformer;
-
 
 class MyPriceTransformer extends AbstractPriceTransformer
 {

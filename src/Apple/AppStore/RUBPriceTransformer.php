@@ -23,4 +23,18 @@ class RUBPriceTransformer extends AbstractPriceTransformer
     {
         return 'RUB';
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDefaultPrices()
+    {
+        return array(
+            '0.99' => 33,
+            '1.99' => 66,
+            '2.99' => 99,
+            '3.99' => 129
+            // todo: adds all prices...
+        );
+    }
 }
