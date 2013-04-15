@@ -70,7 +70,6 @@ class RUBPriceTransformer extends AbstractPriceTransformer
             '37.99' => 1229,
             '38.99' => 1249,
             '39.99' => 1299,
-            '39.99' => 1299,
             '40.99' => 1329,
             '41.99' => 1349,
             '42.99' => 1399,

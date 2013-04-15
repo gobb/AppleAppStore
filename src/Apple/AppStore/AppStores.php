@@ -21,7 +21,7 @@ class AppStores
      *
      * @param string $currency
      * @param boolean $initialize
-     *
+     * @throws \InvalidArgumentException
      * @return array
      */
     public static function getPriceTransformerByCurrency($currency, $initialize = true)
@@ -45,7 +45,7 @@ class AppStores
      *
      * @param string $countryISO
      * @param boolean $initialize
-     *
+     * @throws \InvalidArgumentException
      * @return \Apple\AppStore\AppStoreInterface
      */
     public static function getAppStoreByCountry($countryISO, $initialize = true)

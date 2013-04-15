@@ -49,7 +49,7 @@ interface AppStoreInterface
     /**
      * Get default price transformer
      *
-     * @return PriceTrasnformerInterface
+     * @return PriceTransformerInterface
      */
     public function getDefaultPriceTransformer();
 }

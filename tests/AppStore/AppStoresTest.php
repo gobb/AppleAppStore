@@ -10,8 +10,6 @@
  */
 
 use Apple\AppStore\AppStores;
-use Apple\AppStore\AppStoreInterface;
-use Apple\AppStore\PriceTransformerInterface;
 
 /**
  * Store tests
