@@ -92,7 +92,10 @@ class AppStoreTest extends \PHPUnit_Framework_TestCase
             array(new Stores\USStore, true),
             array(new Stores\RUStore, false),
             array(new Stores\USStore, true), // @todo: temporary usage default price transformer
-            array(new Stores\CAStore, false)
+            array(new Stores\CAStore, false),
+            array(new Stores\DEStore, false),
+            array(new Stores\ESStore, false),
+            array(new Stores\FRStore, false)
         );
     }
 }

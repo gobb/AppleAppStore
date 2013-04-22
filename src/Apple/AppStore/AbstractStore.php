@@ -65,6 +65,6 @@ abstract class AbstractStore implements AppStoreInterface
      */
     public function getUriPrefix()
     {
-        return '';
+        return $this->getCountryISO();
     }
 }

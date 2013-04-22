@@ -39,7 +39,8 @@ class AppStoresTest extends \PHPUnit_Framework_TestCase
             array('RUB'),
             array('usd'),
             array('uah'),
-            array('cad')
+            array('cad'),
+            array('eur')
         );
     }
 
@@ -66,7 +67,10 @@ class AppStoresTest extends \PHPUnit_Framework_TestCase
             array('RU'),
             array('us'),
             array('ua'),
-            array('ca')
+            array('ca'),
+            array('de'),
+            array('es'),
+            array('fr')
         );
     }
 }
